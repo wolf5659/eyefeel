@@ -33,15 +33,31 @@ h1{margin:0;font-family:'Cinzel Decorative',Georgia,serif;font-weight:900;font-s
 nav a[href="sauces.html"]::after{content:none}
 
 
-/* Mobile: prevent navigation overflow and keep audio controls fixed at the bottom. */
+/* Mobile: keep audio controls within the visible viewport, even with browser bars. */
 @media(max-width:640px){
   header{align-items:flex-start;justify-content:flex-start;gap:4px;padding:calc(env(safe-area-inset-top,0px) + 10px) 8px 0}
   .logo{width:clamp(46px,14.5vw,60px);flex:0 0 clamp(46px,14.5vw,60px)}
   nav{flex:1 1 auto;min-width:0;max-width:none;flex-wrap:nowrap;justify-content:space-between;align-items:flex-start;gap:2px;white-space:nowrap;font-size:clamp(11px,3.15vw,13px);line-height:1.15}
   nav a{padding:6px 0;white-space:nowrap;flex:0 1 auto}
-  .mctl{position:fixed;top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);right:calc(env(safe-area-inset-right,0px) + 14px);left:auto;max-width:calc(100vw - 28px);z-index:50;flex-wrap:nowrap}
-  .mctl .vol{height:34px;padding:0 10px;flex:0 1 auto;min-width:0}
-  .mctl .vol input{width:76px;max-width:100%}
+  .mctl{
+    position:fixed;
+    top:calc(100vh - 64px);
+    top:calc(100svh - 64px);
+    bottom:auto;
+    right:calc(env(safe-area-inset-right,0px) + 14px);
+    left:auto;
+    width:178px;
+    max-width:calc(100vw - 28px);
+    margin:0;
+    z-index:1000;
+    display:flex;
+    flex-wrap:nowrap;
+    justify-content:flex-end;
+    align-items:center;
+    gap:10px;
+  }
+  .mctl .vol{height:34px;padding:0 10px;flex:1 1 0;min-width:0}
+  .mctl .vol input{width:100%;min-width:0}
   .mctl .mbtn{width:40px;height:40px;flex:0 0 40px}
 }
 @media(max-width:360px){
