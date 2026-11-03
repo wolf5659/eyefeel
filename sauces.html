@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sauces · Eyefeel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/sauces.css">
+<meta name="description" content="Preview the upcoming Eyefeel sauce collection. Final products are coming soon.">
+</head>
+<body class="sauces-page"><div class="stage">
+<div class="fog" aria-hidden="true"></div>
+<header>
+<a class="logo" href="index.html" aria-label="Eyefeel home"><img src="assets/logo.png" alt="Eyefeel elephant mascot"></a>
+<nav><a href="sauces.html" aria-current="page">Sauces</a><a href="#drinks">Drinks</a><a href="#apparel">Apparel</a><a href="#returns">Return Policy</a><a href="#contact">Contact Us</a><a href="#cart">Cart</a></nav>
+</header><svg class="bottle-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><defs>
+<linearGradient id="glass-shine" x1="0" x2="1"><stop stop-color="#fff" stop-opacity=".28"/><stop offset=".28" stop-color="#fff" stop-opacity="0"/><stop offset=".8" stop-color="#000" stop-opacity=".1"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></linearGradient>
+<symbol id="sauce-bottle" viewBox="0 0 180 320">
+<ellipse cx="90" cy="307" rx="59" ry="8" fill="#000" opacity=".4"/>
+<path d="M64 40h52v29c0 27 28 32 28 58v158c0 14-9 22-22 22H58c-13 0-22-8-22-22V127c0-26 28-31 28-58Z" fill="var(--sauce-color,#8d1a1a)" stroke="#d9a94a" stroke-width="2"/>
+<path d="M64 40h52v29c0 27 28 32 28 58v158c0 14-9 22-22 22H58c-13 0-22-8-22-22V127c0-26 28-31 28-58Z" fill="url(#glass-shine)"/>
+<rect x="59" y="12" width="62" height="35" rx="7" fill="#17110e" stroke="#d9a94a" stroke-width="2"/>
+<path d="M68 17v24m9-24v24m9-24v24m9-24v24m9-24v24m9-24v24" stroke="#d9a94a" stroke-opacity=".35"/>
+<rect x="43" y="137" width="94" height="115" rx="5" fill="#f3e3c3"/>
+<rect x="48" y="142" width="84" height="105" rx="3" fill="none" stroke="#8d1a1a"/>
+<path d="m90 157 5 12 13 1-10 9 3 13-11-7-11 7 3-13-10-9 13-1Z" fill="#8d1a1a"/>
+<path d="M61 206h58m-51 9h44m-36 9h28" stroke="#8d1a1a" stroke-width="3" stroke-linecap="round"/>
+<path d="M48 271h84" stroke="#f3e3c3" stroke-opacity=".3"/>
+</symbol></defs></svg>
+<main class="sauce-main" id="main">
+<div class="sauce-intro"><p class="sauce-eyebrow">Placeholder collection</p><h1>Sauces</h1><p>The collection is coming soon. These bottles are placeholders.</p></div>
+<ul class="sauce-grid" aria-label="Upcoming sauces">
+<li><article class="sauce-card" style="--sauce-color:#991e1e" aria-labelledby="sauce-1">
+<div class="sauce-art"><span class="sauce-number" aria-hidden="true">01</span><svg viewBox="0 0 180 320" role="img" aria-label="Illustrated placeholder sauce bottle"><use href="#sauce-bottle"/></svg></div>
+<div class="sauce-details"><h2 id="sauce-1">Sauce No. 01</h2><p>Final product details coming soon.</p><span class="sauce-status">Coming soon</span></div>
+</article></li>
+<li><article class="sauce-card" style="--sauce-color:#b46b20" aria-labelledby="sauce-2">
+<div class="sauce-art"><span class="sauce-number" aria-hidden="true">02</span><svg viewBox="0 0 180 320" role="img" aria-label="Illustrated placeholder sauce bottle"><use href="#sauce-bottle"/></svg></div>
+<div class="sauce-details"><h2 id="sauce-2">Sauce No. 02</h2><p>Final product details coming soon.</p><span class="sauce-status">Coming soon</span></div>
+</article></li>
+<li><article class="sauce-card" style="--sauce-color:#4e653b" aria-labelledby="sauce-3">
+<div class="sauce-art"><span class="sauce-number" aria-hidden="true">03</span><svg viewBox="0 0 180 320" role="img" aria-label="Illustrated placeholder sauce bottle"><use href="#sauce-bottle"/></svg></div>
+<div class="sauce-details"><h2 id="sauce-3">Sauce No. 03</h2><p>Final product details coming soon.</p><span class="sauce-status">Coming soon</span></div>
+</article></li>
+</ul>
+<div class="sauce-footer"><a class="sauce-back" href="index.html">← Back to the wheel</a><p>Product preview · Not yet available to order.</p></div>
+</main>
+</div>
+<audio id="bgm" loop preload="auto" src="assets/musicbox.mp3"></audio>
+<div class="mctl"><div class="vol"><input id="vol" type="range" min="0" max="100" value="35" aria-label="Volume" title="Volume"></div><button class="mbtn" id="mbtn" type="button" aria-label="Play music" aria-pressed="false" title="Play music"><svg class="off" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3z" fill="currentColor"/><path d="M16 9l6 6M22 9l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg><svg class="on" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3z" fill="currentColor"/><path d="M16 8.5a5 5 0 010 7M18.5 6a8.5 8.5 0 010 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg></button></div>
+<script src="js/music.js" defer></script>
+</body></html>
