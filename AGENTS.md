@@ -36,7 +36,7 @@ Static site (plain HTML/CSS/JS, no build step). Owner: Al. Domain: www.eyefeel.m
 - Same background, only `assets/feeling-soon.webp` centered on screen. Size by thirds: ~56.7vw / 56.7vh (width = min(56.666vw, 56.666vh*1.305)); mobile width min(68vw, ...). Never cut off.
 
 ## Notes / decisions
-- ribbon image upper-banner.webp reads "What are you you feeling?" (as supplied by the owner). Ask before changing it.
+- ribbon image upper-banner.webp reads "What are you feeling?" (corrected artwork supplied by the owner). Preserve the supplied wording.
 - Wheel segments are NOT clickable to pages yet ("Coming soon").
 
 ## Next steps (owner's roadmap)
