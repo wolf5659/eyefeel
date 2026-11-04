@@ -1,0 +1,91 @@
+/* Eyefeel Returns & Refunds: carnival-style legal page */
+.policy-page{
+  min-height:100%;
+  background:#0e0604 url("../assets/bg.jpg") center top / cover fixed no-repeat;
+}
+.policy-page .stage{
+  position:relative;
+  min-height:100vh;
+  min-height:100dvh;
+  height:auto;
+  overflow:visible;
+  isolation:isolate;
+  background:transparent;
+}
+.policy-page .stage::before{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background:
+    linear-gradient(180deg,rgba(8,3,2,.45),rgba(8,3,2,.77) 42%,rgba(8,3,2,.86)),
+    url("../assets/bg.jpg") center center / cover no-repeat;
+  pointer-events:none;
+}
+.policy-page .fog{position:fixed;z-index:-1;pointer-events:none}
+.policy-page header{position:relative;max-width:1440px;margin-inline:auto;padding-bottom:12px}
+.policy-page nav a[aria-current="page"]{color:var(--gold);border-bottom-color:var(--gold)}
+.policy-page nav a[href="returns.html"]::after{content:none}
+.policy-main{position:relative;z-index:2;max-width:1060px;margin:0 auto;padding:12px clamp(16px,4.2vw,44px) 112px}
+.policy-hero{text-align:center;padding:34px 12px 40px}
+.policy-kicker{display:flex;align-items:center;justify-content:center;gap:18px;margin:0 0 14px;letter-spacing:.3em;font-size:12px;text-transform:uppercase;color:#e8b860;font-family:Georgia,serif}
+.policy-kicker::before,.policy-kicker::after{content:"";display:block;width:46px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.policy-kicker::after{transform:rotate(180deg)}
+.policy-hero h1{font-family:"Cinzel Decorative",Georgia,serif;font-size:clamp(30px,4.6vw,56px);font-weight:700;line-height:1.35;color:#f7e5bf;text-shadow:0 3px 14px #000,0 0 25px #9a482344;letter-spacing:.025em;animation:none}
+.policy-hero .policy-intro{max-width:750px;margin:14px auto 0;font-size:clamp(19px,2.25vw,24px);line-height:1.45;color:#e5cfaf;text-shadow:0 2px 5px #000}
+.policy-meta{margin-top:18px;font-size:14px;color:#dbbb87;letter-spacing:.045em;font-family:Georgia,serif}
+.policy-switch{display:inline-flex;align-items:center;gap:4px;border:1px solid #d9a94a91;border-radius:999px;background:#100704e8;padding:5px;margin-top:22px;box-shadow:0 6px 25px #0008}
+.policy-switch button{font:600 15px Georgia,serif;padding:9px 18px;min-width:98px;border:0;border-radius:999px;background:transparent;color:#f3e3c3;cursor:pointer}
+.policy-switch button[aria-pressed="true"]{background:linear-gradient(150deg,#e9c079,#bf8a39);color:#240e09}
+.policy-switch button:focus-visible,.policy-copy a:focus-visible{outline:2px solid #f4cb77;outline-offset:3px}
+.policy-notice{margin-bottom:24px;background:rgba(18,8,5,.86);border:1px solid #b7894b80;padding:18px 24px;border-radius:8px;text-align:center;box-shadow:0 10px 28px #0006}
+.policy-notice strong{color:#f4d69d}
+.policy-notice p{font-size:17px;line-height:1.55;margin:0}
+.policy-highlights{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0 0 28px}
+.policy-highlight{background:linear-gradient(160deg,rgba(69,31,18,.95),rgba(16,8,6,.94));border:1px solid #b88b4ca6;border-radius:12px;padding:23px 24px;box-shadow:0 12px 32px #0008,inset 0 0 0 3px #180b07}
+.policy-highlight .policy-num{font-family:"Cinzel Decorative",Georgia,serif;color:#d9a94a;font-size:16px}
+.policy-highlight h2{font-family:"Cinzel Decorative",Georgia,serif;font-size:clamp(19px,2vw,25px);font-weight:700;margin:9px 0;color:#f2d6a0;line-height:1.4}
+.policy-highlight p{margin:0;color:#e9dbc5;font-size:clamp(17px,1.85vw,20px);line-height:1.5}
+.policy-panel{position:relative;background:linear-gradient(135deg,rgba(22,10,7,.965),rgba(33,15,10,.96) 58%,rgba(13,7,6,.97));border:1px solid #bc924e;border-radius:12px;padding:clamp(20px,3.5vw,38px);box-shadow:0 20px 55px #000b,inset 0 0 0 4px rgba(217,169,74,.07);margin-bottom:22px}
+.policy-panel::before{content:"";position:absolute;inset:8px;border:1px solid #d9a94a22;pointer-events:none;border-radius:7px}
+.policy-panel h2{font-family:"Cinzel Decorative",Georgia,serif;font-size:clamp(22px,2.5vw,31px);line-height:1.4;color:#f0cf90;margin:0 0 19px}
+.policy-panel h3{font-size:clamp(20px,2vw,24px);line-height:1.25;color:#f6dfa9;font-weight:600;margin:23px 0 7px}
+.policy-panel p,.policy-panel li{font-size:clamp(18px,1.85vw,21px);line-height:1.55;color:#f0e3d0}
+.policy-panel p{margin:9px 0 16px}
+.policy-panel ul,.policy-panel ol{padding-inline-start:25px;margin:8px 0 18px}
+.policy-panel li{margin:8px 0}
+.policy-panel .small-print{font-size:16px;color:#d4c0a4}
+.policy-panel a,.policy-footer a{color:#e7bd70;text-underline-offset:3px}
+.policy-panel strong{color:#ffdc98}
+.policy-divider{height:1px;background:linear-gradient(90deg,transparent,#c99a5c,transparent);margin:23px 0}
+.policy-legal{background:rgba(15,8,5,.95)}
+.policy-legal ul{list-style-type:none;padding:0}
+.policy-legal li{font-size:17px;margin:10px 0}
+.policy-footer{text-align:center;font-family:Georgia,serif;font-size:14px;line-height:1.7;color:#d1ad7a}
+.policy-footer a{text-decoration:none}
+.policy-copy[hidden]{display:none!important}
+.policy-copy[dir="rtl"]{font-family:"Tajawal",Tahoma,Arial,sans-serif}
+.policy-copy[dir="rtl"] h2,.policy-copy[dir="rtl"] h3,.policy-copy[dir="rtl"] p,.policy-copy[dir="rtl"] li,.policy-copy[dir="rtl"] .policy-highlight p{font-family:"Tajawal",Tahoma,Arial,sans-serif;letter-spacing:normal}
+.policy-copy[dir="rtl"] h2{font-size:clamp(24px,3vw,34px);font-weight:800}
+.policy-copy[dir="rtl"] h3{font-size:clamp(20px,2.4vw,26px);font-weight:700}
+.policy-copy[dir="rtl"] .policy-panel p,.policy-copy[dir="rtl"] .policy-panel li{font-size:clamp(17px,1.9vw,20px);line-height:1.9}
+.policy-copy[dir="rtl"] .policy-highlight h2{font-family:"Tajawal",Tahoma,Arial,sans-serif;font-weight:800}
+@media(max-width:640px){
+  .policy-page{background-attachment:scroll}
+  .policy-page header{gap:6px}
+  .policy-page nav a:nth-child(4){display:inline-flex}
+  .policy-page nav a:nth-child(5){display:none}
+  .policy-page nav a:nth-child(4){font-size:0}
+  .policy-page nav a:nth-child(4)::before{content:"Returns";position:static;display:inline;opacity:1;transform:none;border:none;background:none;margin:0;padding:0;font:600 11px Georgia,serif;color:var(--gold)}
+  .policy-page nav a:nth-child(4):hover::before{color:#f2ddb2}
+  .policy-page .logo{flex-shrink:0}
+  .policy-main{padding:4px 14px 100px}
+  .policy-hero{padding:26px 6px 29px}
+  .policy-hero h1{font-size:clamp(27px,7vw,36px)}
+  .policy-kicker{letter-spacing:.18em;font-size:11px}
+  .policy-kicker::before,.policy-kicker::after{width:23px}
+  .policy-highlights{grid-template-columns:1fr;gap:11px}
+  .policy-highlight{padding:18px}
+  .policy-panel{padding:22px 19px}
+  .policy-notice{padding:16px}
+}
+@media(max-width:370px){.policy-page nav{font-size:10px;gap:2px}.policy-page nav a:nth-child(4)::before{font-size:10px}}
