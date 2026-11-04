@@ -88,46 +88,12 @@ module.exports = async function handler(req, res) {
     return reply(res, 429, "Please allow a short moment before sending another message.");
   }
 
-  try {
-    const outbound = {
-      name,
-      email,
-      phone: phone || "Not provided",
-      subject: topic,
-      order_number: order || "Not provided",
-      message,
-      _subject: "Eyefeel Contact | " + topic,
-      _replyto: email,
-      _captcha: "false",
-      _template: "table",
-      _url: "https://www.eyefeel.me/contact.html",
-    };
-
-    const response = await fetch(
-      "https://formsubmit.co/ajax/" + encodeURIComponent(dest),
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json", "Referer": "https://www.eyefeel.me/contact.html", "Origin": "https://www.eyefeel.me" },
-        body: JSON.stringify(outbound),
-        signal: AbortSignal.timeout(12000),
-      }
-    );
-
-    const result = await response.json().catch(() => ({}));
-    // FormSubmit reports success as a boolean or as the string "true".
-    if (!response.ok || (result.success !== true && result.success !== "true")) {
-      const providerMessage = typeof result.message === "string" ? result.message.slice(0, 400) : "";
-      console.error("Eyefeel contact: mail service rejected submission", response.status, providerMessage);
-      if (/activation|activate|confirm.*email/i.test(providerMessage)) {
-        return reply(res, 503, "Our email delivery needs a one-time address confirmation. Please use WhatsApp while we complete setup.");
-      }
-      return reply(res, 502, "We could not send your message right now. Please try again or contact us on WhatsApp.");
-    }
-
-    if (ip) recent.set(ip, now);
-    return reply(res, 200, "Thank you. Your message has been submitted.");
-  } catch (error) {
-    console.error("Eyefeel contact: mail delivery request failed", error && error.message);
-    return reply(res, 502, "We could not send your message right now. Please try again or contact us on WhatsApp.");
-  }
+  // FormSubmit blocks server-to-server submissions with Cloudflare.
+  // A 307 sends the validated POST from the visitor's browser, where
+  // FormSubmit's public AJAX integration is supported. The destination
+  // address stays out of the rendered form and JavaScript source.
+  if (ip) recent.set(ip, now);
+  res.setHeader("Location", "https://formsubmit.co/ajax/" + encodeURIComponent(dest));
+  res.setHeader("Cache-Control", "no-store");
+  res.status(307).end();
 };
