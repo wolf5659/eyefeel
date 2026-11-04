@@ -12,14 +12,16 @@
   var messages = {
     en: {
       sending: "Sending your message...",
-      success: "Thank you. Your message has been submitted.",
+      success: "Thank you. Your message has been sent.",
+      activation: "Email delivery needs a one-time activation. An activation email has been requested. Please check the receiving inbox and spam folder.",
       error: "We couldn't send your message. Please try again or use WhatsApp below.",
       offline: "Your connection appears to be offline. Please try again.",
       retry: "Send Message"
     },
     ar: {
       sending: "جارٍ إرسال رسالتك...",
-      success: "شكرًا لك. تم إرسال طلبك.",
+      success: "شكرًا لك. تم إرسال رسالتك.",
+      activation: "يلزم تفعيل البريد الإلكتروني لمرة واحدة. تم طلب رسالة التفعيل. يرجى مراجعة البريد الوارد والرسائل غير المرغوب فيها.",
       error: "تعذّر إرسال الرسالة. يُرجى المحاولة مجددًا أو التواصل عبر واتساب أدناه.",
       offline: "يبدو أن الاتصال بالإنترنت غير متاح. يرجى المحاولة مجددًا.",
       retry: "إرسال الرسالة"
@@ -62,6 +64,11 @@
     var values = new FormData(form);
     var payload = {};
     values.forEach(function (value, key) { payload[key] = value; });
+    payload._replyto = payload.email;
+    payload._subject = "Eyefeel Contact | " + payload.topic;
+    payload._template = "table";
+    payload._captcha = "false";
+    payload._url = "https://www.eyefeel.me/contact.html";
 
     try {
       var response = await fetch(form.action, {
@@ -71,10 +78,23 @@
         credentials: "same-origin"
       });
       var data = await response.json().catch(function () { return {}; });
-      if (!response.ok || !data.ok) throw new Error("not-delivered");
-      setStatus(messages[lang].success, false);
-      form.reset();
-      started.value = String(Date.now());
+      if (response.redirected && response.url.indexOf("formsubmit.co/") !== -1) {
+        if (response.ok && (data.success === true || data.success === "true")) {
+          setStatus(messages[lang].success, false);
+          form.reset();
+          started.value = String(Date.now());
+        } else if (typeof data.message === "string" && /activation|activate|confirm.*email/i.test(data.message)) {
+          setStatus(messages[lang].activation, true);
+        } else {
+          throw new Error("provider-rejected");
+        }
+      } else if (response.ok && data.ok) {
+        setStatus(messages[lang].success, false);
+        form.reset();
+        started.value = String(Date.now());
+      } else {
+        throw new Error("not-delivered");
+      }
     } catch (error) {
       setStatus(navigator.onLine === false ? messages[lang].offline : messages[lang].error, true);
     } finally {
