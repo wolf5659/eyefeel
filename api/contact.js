@@ -107,7 +107,7 @@ module.exports = async function handler(req, res) {
       "https://formsubmit.co/ajax/" + encodeURIComponent(dest),
       {
         method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        headers: { "Content-Type": "application/json", "Accept": "application/json", "Referer": "https://www.eyefeel.me/contact.html", "Origin": "https://www.eyefeel.me" },
         body: JSON.stringify(outbound),
         signal: AbortSignal.timeout(12000),
       }
@@ -116,7 +116,11 @@ module.exports = async function handler(req, res) {
     const result = await response.json().catch(() => ({}));
     // FormSubmit reports success as a boolean or as the string "true".
     if (!response.ok || (result.success !== true && result.success !== "true")) {
-      console.error("Eyefeel contact: mail service rejected submission", response.status);
+      const providerMessage = typeof result.message === "string" ? result.message.slice(0, 400) : "";
+      console.error("Eyefeel contact: mail service rejected submission", response.status, providerMessage);
+      if (/activation|activate|confirm.*email/i.test(providerMessage)) {
+        return reply(res, 503, "Our email delivery needs a one-time address confirmation. Please use WhatsApp while we complete setup.");
+      }
       return reply(res, 502, "We could not send your message right now. Please try again or contact us on WhatsApp.");
     }
 
