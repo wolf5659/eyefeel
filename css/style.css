@@ -9,7 +9,7 @@ body{margin:0;height:100%;background:var(--ink);color:var(--cream);font-family:'
 header{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:clamp(10px,2vw,32px);padding:calc(env(safe-area-inset-top,0px) + 14px) clamp(16px,4vw,48px) 0;z-index:3}
 .logo{display:block;width:clamp(64px,8vw,104px);filter:drop-shadow(0 4px 14px rgba(0,0,0,.7))}
 .logo img{display:block;width:100%;height:auto}
-nav{display:flex;flex:1 1 auto;min-width:0;flex-wrap:nowrap;align-items:center;justify-content:space-between;gap:clamp(8px,1.5vw,24px);font-size:clamp(16px,1.5vw,20px);font-weight:600}
+nav{display:flex;flex:0 1 auto;min-width:0;flex-wrap:nowrap;align-items:center;justify-content:flex-end;gap:clamp(16px,2vw,32px);margin-left:auto;font-size:clamp(16px,1.5vw,20px);font-weight:600}
 nav a{color:var(--cream);text-decoration:none;text-shadow:0 2px 8px #000;padding:6px 2px;border-bottom:1px solid transparent}
 nav a:hover,nav a:focus-visible{border-color:var(--gold);color:var(--gold);outline:none}nav a{position:relative}nav a::after{content:"Coming soon";position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:8px;padding:4px 12px;white-space:nowrap;font-size:.8em;color:var(--cream);background:rgba(8,3,2,.88);border:1px solid var(--gold);border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s}nav a:last-child::after{left:auto;right:0;transform:none}nav a:hover::after,nav a:focus-visible::after{opacity:1}
 .hero{position:absolute;top:17%;left:0;right:0;text-align:center;z-index:2;padding:0 16px}
