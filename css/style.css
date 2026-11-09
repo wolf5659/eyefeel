@@ -115,7 +115,12 @@ nav a[href="sauces.html"]::after,nav a[href="drinks.html"]::after{content:none}
   header nav.mobile-nav a:nth-child(n)::after{content:none}
 }
 
-/* The centre spins; each feeling segment opens its collection directly. */
+/* Only the landed emotion is interactive; the centre starts a new spin. */
 .disc .spin-trigger{position:absolute;z-index:6;left:49.95%;top:49.49%;transform:translate(-50%,-50%);width:28.4%;height:28.4%;padding:0;border:0;border-radius:50%;background:transparent;cursor:pointer}
 .disc .spin-trigger:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 .disc .spin-trigger:disabled{cursor:wait}
+
+.seg{pointer-events:none;cursor:default}
+.seg.won{pointer-events:auto;cursor:pointer}
+.seg.won:focus-visible path{stroke:var(--gold);stroke-width:.5}
+.wheel-status{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
