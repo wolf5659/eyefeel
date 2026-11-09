@@ -32,3 +32,5 @@ Drinks uses the same original stacked card styling and proportional fit script. 
 Citrus Hysteria is displayed on both Sauces and Angry, using the same vertical card, 35 SAR price, vendor message, and Buy now destination. Keep it on both pages.
 
 Price styling: always make the numeric amount larger than the currency. Wrap amounts in .price-amount and currency in .price-currency; the shared currency font is half the amount size on every product page.
+
+Feeling collections: Cute and Weird also display Sweet Lunacy (30 SAR); Scary also displays Crimson Potion (25 SAR), using identical drink cards and vendor links. Angry retains Citrus Hysteria (35 SAR). These are additional listings; retain every product on its existing category page. Other feeling pages have no assigned products yet.
