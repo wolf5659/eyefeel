@@ -25,7 +25,7 @@ Static site (plain HTML/CSS/JS, no build step). Owner: Al. Domain: www.eyefeel.m
 - Geometry (percent of `.disc`): hub center 49.95% / 49.49%; wedge outer radius 43.5; hub radius 14.2; middlewheel width ~38.5%.
 - RULE: the wheel + banner must never be cut off on any screen (desktop or mobile). `.disc` size = min(94cqw, 100cqh / 1.156).
 - Hover: only ONE segment may be highlighted (dark + "Coming soon"), only under the real cursor, via the JS class `.hot` — never CSS :hover/:focus (that caused double highlights). Nothing is highlighted during or right after a spin until the mouse really moves.
-- Spin: pressing a segment spins the wheel 5–7 turns, fast start, long slow stop (CSS cubic-bezier(.08,.6,.12,1), 6s), random landing. After it stops, NO segment is picked or highlighted.
+- Spin: pressing a segment spins the wheel 5–7 turns, fast start, long slow stop (CSS cubic-bezier(.08,.6,.12,1), 6s), random landing. After it stops, landing on Angry opens angry.html. Other results remain on the wheel without highlighting.
 - CSS gotcha: `.disc img{...}` is a broad rule — style `img.middlewheel` / `img.upperbanner` with `.disc img.name` or they blow up to 100% size.
 
 ## Sound
@@ -38,7 +38,7 @@ Static site (plain HTML/CSS/JS, no build step). Owner: Al. Domain: www.eyefeel.m
 ## Notes / decisions
 - Sauces: show only Citrus Hysteria for now; Sauce No. 02 and 03 were removed at the owner's request. Do not add placeholder products. Preserve the existing arched gold/red cards, uncropped product photos, name, sauce type, and purchase details for future launches. Citrus Hysteria is 35 SAR with a "Buy now" link to `https://eshdhd.com/eyefeel-lemon-chili-sauce/p43727056`, preceded by "Visit our official vendor in Saudi Arabia". Do not mark it as coming soon. See `docs/sauce-display.md` for the reusable card and responsive layout.
 - ribbon image upper-banner.webp reads "What are you feeling?" (corrected artwork supplied by the owner). Preserve the supplied wording.
-- Wheel segments are NOT clickable to pages yet ("Coming soon").
+- Angry links directly to angry.html on click, Enter, or Space. A spin landing on Angry also opens that page after the animation stops. Other segments still spin and show Coming soon.
 
 ## Next steps (owner's roadmap)
 - [ ] Product pages: Sauces, Drinks, Apparel

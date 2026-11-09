@@ -1,0 +1,6 @@
+.angry-page .stage{display:flex;flex-direction:column;height:100svh;min-height:360px;padding-bottom:calc(76px + env(safe-area-inset-bottom,0px));overflow-x:clip}
+.angry-page header{position:relative;flex:none}
+.angry-main{position:relative;z-index:1;flex:1;display:grid;place-items:center;padding:24px;text-align:center}
+.angry-heading h1{font-size:clamp(48px,12vw,112px)}
+.angry-back{display:inline-block;margin-top:28px;padding:12px 24px;border:1px solid var(--gold);border-radius:999px;color:var(--gold);background:rgba(14,6,4,.75);font-size:20px;text-decoration:none}
+.angry-back:hover,.angry-back:focus-visible{color:var(--cream);background:#5e0d0d;outline:2px solid var(--gold);outline-offset:4px}
