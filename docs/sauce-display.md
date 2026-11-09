@@ -2,7 +2,9 @@
 
 Owner decision, 9 November 2026: only Citrus Hysteria is displayed for now. Add new sauces when the owner supplies or approves them; do not restore the two placeholder products.
 
-Keep the existing dark circus background and arched, gold-bordered red/black cards. Each real product uses the supplied photo at its natural aspect ratio, followed by its name, sauce type, and availability badge. Never invent product claims, prices, or availability.
+Keep the existing dark circus background and arched, gold-bordered red/black cards. Each real product uses the supplied photo at its natural aspect ratio, followed by its name, sauce type, approved price, vendor message, and Buy now link. Never invent product claims, prices, or availability.
+
+Approved launch details: Citrus Hysteria costs 35 SAR. The message immediately above its Buy now button is "Visit our official vendor in Saudi Arabia". Its button links to `https://eshdhd.com/eyefeel-lemon-chili-sauce/p43727056`. It is no longer marked Coming soon.
 
 The existing `css/sauces.css` grid supports three columns on desktop, two at 850px and below, and one at 560px and below. A single product is centered with a maximum width of 360px; additional products automatically use the multi-product layout. Preserve the mobile Menu dropdown.
 
@@ -16,9 +18,11 @@ Insert each approved sauce as a sibling `<li>` inside `.sauce-grid` in `sauces.h
   <div class="sauce-details">
     <h2 id="sauce-NEW-ID">APPROVED PRODUCT NAME</h2>
     <p>APPROVED SAUCE TYPE</p>
-    <span class="sauce-status">Coming soon</span>
+    <p class="sauce-price">APPROVED PRICE SAR</p>
+    <p class="sauce-vendor">Visit our official vendor in Saudi Arabia</p>
+    <a class="sauce-buy" href="APPROVED-VENDOR-PRODUCT-URL">Buy now</a>
   </div>
 </article></li>
 ```
 
-Use the owner's approved availability text. Keep full-size originals when preparing optimized assets, and update the stylesheet query version when its layout changes so phones fetch the new CSS.
+Use the owner's approved price, vendor destination, and availability. A future unlaunched product may use the existing `.sauce-status` badge only when requested; do not restore it on Citrus Hysteria. Keep full-size originals when preparing optimized assets, and update the stylesheet query version when its layout changes so phones fetch the new CSS.
