@@ -6,7 +6,7 @@ Keep the existing dark circus background and arched, gold-bordered red/black car
 
 Approved launch details: Citrus Hysteria costs 35 SAR. The message immediately above its Buy now button is "Visit our official vendor in Saudi Arabia". Its button links to `https://eshdhd.com/eyefeel-lemon-chili-sauce/p43727056`. It is no longer marked Coming soon.
 
-The existing `css/sauces.css` grid supports three columns on desktop, two at 850px and below, and one at 560px and below. A single product is centered with a maximum width of 360px; additional products automatically use the multi-product layout. Preserve the mobile Menu dropdown.
+The existing `css/sauces.css` grid supports three columns on desktop, two at 850px and below, and one at 560px and below. A single product uses the space remaining below the header and above the audio controls, with its full photo contained rather than cropped. It stacks at phone widths (maximum width 360px) and places the photo beside the purchase details on wide or short landscape screens (maximum width 760px). Its text and Buy now button must remain visible together with the full image. Additional products automatically use the multi-product layout. Preserve the mobile Menu dropdown.
 
 Insert each approved sauce as a sibling `<li>` inside `.sauce-grid` in `sauces.html`. Replace the sample values and give every heading a unique ID:
 
