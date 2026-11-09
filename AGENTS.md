@@ -36,6 +36,7 @@ Static site (plain HTML/CSS/JS, no build step). Owner: Al. Domain: www.eyefeel.m
 - Same background, only `assets/feeling-soon.webp` centered on screen. Size by thirds: ~56.7vw / 56.7vh (width = min(56.666vw, 56.666vh*1.305)); mobile width min(68vw, ...). Never cut off.
 
 ## Notes / decisions
+- Sauces: show only Citrus Hysteria for now; Sauce No. 02 and 03 were removed at the owner's request. Do not add placeholder products. Preserve the existing arched gold/red cards, uncropped product photos, name, sauce type, and availability badge for future launches. See `docs/sauce-display.md` for the reusable card and responsive layout.
 - ribbon image upper-banner.webp reads "What are you feeling?" (corrected artwork supplied by the owner). Preserve the supplied wording.
 - Wheel segments are NOT clickable to pages yet ("Coming soon").
 
