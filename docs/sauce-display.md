@@ -26,3 +26,5 @@ Insert each approved sauce as a sibling `<li>` inside `.sauce-grid` in `sauces.h
 ```
 
 Use the owner's approved price, vendor destination, and availability. A future unlaunched product may use the existing `.sauce-status` badge only when requested; do not restore it on Citrus Hysteria. Keep full-size originals when preparing optimized assets, and update the stylesheet query version when its layout changes so phones fetch the new CSS.
+
+Drinks uses the same original stacked card styling and proportional fit script. It shows Crimson Potion (Ice Lemon Tea) and Sweet Lunacy (Spiced Pineapple Elixir), both temporarily 0 SAR with Buy now linking to https://www.eyefeel.me/. Keep the copied vendor message. Show the two cards next to each other on desktop and vertically on phones, where the collection scrolls.
