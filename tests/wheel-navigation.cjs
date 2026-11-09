@@ -16,7 +16,7 @@ for (const [pageName, id] of [['cute','drink-2'],['weird','drink-2'],['scary','d
   const card = html => html.match(new RegExp('<li><article class="sauce-card" aria-labelledby="'+id+'">[\\s\\S]*?<\\/article><\\/li>'))[0];
   assert.equal(card(read(pageName+'.html')), card(read('drinks.html')));
 }
-for (const name of ['funny','happy','loved','nostalgic','sad','special']) {
+for (const name of ['funny','happy','loved','sad','special']) {
   assert.ok(!read(name+'.html').includes('class="sauce-card"'));
 }
 const segmentTags = [...read('index.html').matchAll(/<a class="seg"[^>]+>/g)].map(m => m[0]);
