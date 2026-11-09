@@ -27,7 +27,7 @@ Insert each approved sauce as a sibling `<li>` inside `.sauce-grid` in `sauces.h
 
 Use the owner's approved price, vendor destination, and availability. A future unlaunched product may use the existing `.sauce-status` badge only when requested; do not restore it on Citrus Hysteria. Keep full-size originals when preparing optimized assets, and update the stylesheet query version when its layout changes so phones fetch the new CSS.
 
-Drinks uses the same original stacked card styling and proportional fit script. It shows Crimson Potion (Ice Lemon Tea) and Sweet Lunacy (Spiced Pineapple Elixir), priced at 25 SAR and 30 SAR respectively, with Crimson Potion’s Buy now linking to https://eshdhd.com/iced-lemon-tea/p607512049 and Sweet Lunacy’s Buy now temporarily linking to https://www.eyefeel.me/. Keep the copied vendor message. Show the two cards next to each other on desktop and vertically on phones, where the collection scrolls.
+Drinks uses the same original stacked card styling and proportional fit script. It shows Crimson Potion (Ice Lemon Tea) and Sweet Lunacy (Spiced Pineapple Elixir), priced at 25 SAR and 30 SAR respectively, with Crimson Potion’s Buy now linking to https://eshdhd.com/iced-lemon-tea/p607512049 and Sweet Lunacy’s Buy now linking to https://eshdhd.com/sweet-lunacy-spiced-pineapple-%D9%86%D8%B3%D8%AE/p1707592182. Keep the copied vendor message. Show the two cards next to each other on desktop and vertically on phones, where the collection scrolls.
 
 Citrus Hysteria is displayed on both Sauces and Angry, using the same vertical card, 35 SAR price, vendor message, and Buy now destination. Keep it on both pages.
 
