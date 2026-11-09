@@ -28,7 +28,8 @@
 .sauce-details h2{margin:0;font-family:'Cinzel Decorative',Georgia,serif;font-size:clamp(18px,1.8vw,23px);line-height:1.45;color:var(--cream)}
 .sauce-details p{font-size:18px;line-height:1.4;margin:9px 0 16px;color:#d7c8ac}
 .sauce-status{display:inline-block;max-width:100%;padding:5px 16px;border:1px solid #d9a94a70;border-radius:999px;color:var(--gold);font-size:16px;line-height:1.4}
-.sauce-details .sauce-price{margin:14px 0;color:var(--gold);font-size:26px;font-weight:700}
+.sauce-details .sauce-price{margin:14px 0;color:var(--gold);font-size:32px;line-height:1.15;font-weight:700;font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.sauce-price .price-currency{font-size:.5em;font-weight:600}
 .sauce-details .sauce-vendor{max-width:260px;margin:0 auto 14px;font-size:17px;line-height:1.4}
 .sauce-buy{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 28px;border:1px solid var(--gold);border-radius:999px;background:linear-gradient(#f6d98a,#d9a94a);color:#2a1406;font-size:19px;font-weight:700;text-decoration:none;box-shadow:0 4px 16px #0006}
 .sauce-buy:hover,.sauce-buy:focus-visible{background:#f6d98a;color:#180b04;box-shadow:0 0 20px #ff9a3c55}

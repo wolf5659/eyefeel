@@ -18,7 +18,7 @@ Insert each approved sauce as a sibling `<li>` inside `.sauce-grid` in `sauces.h
   <div class="sauce-details">
     <h2 id="sauce-NEW-ID">APPROVED PRODUCT NAME</h2>
     <p>APPROVED SAUCE TYPE</p>
-    <p class="sauce-price">APPROVED PRICE SAR</p>
+    <p class="sauce-price"><span class="price-amount">APPROVED PRICE</span> <span class="price-currency">SAR</span></p>
     <p class="sauce-vendor">Visit our official vendor in Saudi Arabia</p>
     <a class="sauce-buy" href="APPROVED-VENDOR-PRODUCT-URL">Buy now</a>
   </div>
@@ -30,3 +30,5 @@ Use the owner's approved price, vendor destination, and availability. A future u
 Drinks uses the same original stacked card styling and proportional fit script. It shows Crimson Potion (Ice Lemon Tea) and Sweet Lunacy (Spiced Pineapple Elixir), priced at 25 SAR and 30 SAR respectively, with Crimson Potion’s Buy now linking to https://eshdhd.com/iced-lemon-tea/p607512049 and Sweet Lunacy’s Buy now temporarily linking to https://www.eyefeel.me/. Keep the copied vendor message. Show the two cards next to each other on desktop and vertically on phones, where the collection scrolls.
 
 Citrus Hysteria is displayed on both Sauces and Angry, using the same vertical card, 35 SAR price, vendor message, and Buy now destination. Keep it on both pages.
+
+Price styling: always make the numeric amount larger than the currency. Wrap amounts in .price-amount and currency in .price-currency; the shared currency font is half the amount size on every product page.
