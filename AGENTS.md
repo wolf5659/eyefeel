@@ -24,8 +24,8 @@ Static site (plain HTML/CSS/JS, no build step). Owner: Al. Domain: www.eyefeel.m
 - Layers inside `.disc` (square, sized by container query units): `.spin` (wheel.webp + SVG hover wedges, rotates) > `img.middlewheel` (compass, stays still, on the hub) > `img.upperbanner` (ribbon on top, stays still, ornament sits on the wheel's top rim).
 - Geometry (percent of `.disc`): hub center 49.95% / 49.49%; wedge outer radius 43.5; hub radius 14.2; middlewheel width ~38.5%.
 - RULE: the wheel + banner must never be cut off on any screen (desktop or mobile). `.disc` size = min(94cqw, 100cqh / 1.156).
-- Only the landed emotion is highlighted with .won and becomes a clickable link after a spin. Before a spin and while spinning, every section is inactive. Clear the previous choice when starting a new spin.
-- Spin: pressing the centre Spin button spins the wheel 5–7 turns, fast start, long slow stop (CSS cubic-bezier(.08,.6,.12,1), 6s), random landing. After it stops, enable only the landed feeling as a link; wait for the visitor to select it before opening its page.
+- Only the landed emotion is highlighted with .won and becomes a page link after a spin. Clicking any other part of the wheel starts a new spin. Before and during a spin, no feeling link is enabled. Clear the previous choice when starting a new spin.
+- Spin: pressing anywhere inside the wheel (or the centre Spin button by keyboard) spins the wheel 5–7 turns, fast start, long slow stop (CSS cubic-bezier(.08,.6,.12,1), 6s), random landing. After it stops, enable only the landed feeling as a link; wait for the visitor to select it before opening its page.
 - CSS gotcha: `.disc img{...}` is a broad rule — style `img.middlewheel` / `img.upperbanner` with `.disc img.name` or they blow up to 100% size.
 
 ## Sound
@@ -38,7 +38,7 @@ Static site (plain HTML/CSS/JS, no build step). Owner: Al. Domain: www.eyefeel.m
 ## Notes / decisions
 - Sauces: show only Citrus Hysteria for now; Sauce No. 02 and 03 were removed at the owner's request. Do not add placeholder products. Preserve the existing arched gold/red cards, uncropped product photos, name, sauce type, and purchase details for future launches. Citrus Hysteria is 35 SAR with a "Buy now" link to `https://eshdhd.com/eyefeel-lemon-chili-sauce/p43727056`, preceded by "Visit our official vendor in Saudi Arabia". Do not mark it as coming soon. See `docs/sauce-display.md` for the reusable card and responsive layout.
 - ribbon image upper-banner.webp reads "What are you feeling?" (corrected artwork supplied by the owner). Preserve the supplied wording.
-- All ten feeling pages exist, but their wheel sections start inactive. The centre spins the wheel; only the landed feeling becomes clickable or keyboard accessible after the animation. Never redirect automatically after a spin. Citrus Hysteria appears on Angry and Sauces; Sweet Lunacy on Cute, Weird, and Drinks; Crimson Potion on Scary and Drinks. Nostalgic and Apparel share all 11 imported T-shirts from EshDHD. Build them from data/apparel.json using node scripts/build-apparel.cjs. The other feeling pages have matching styling and a Back to the wheel link, ready for assigned products.
+- All ten feeling pages exist, but their wheel sections start inactive. Clicking the wheel spins it; only the landed feeling becomes a page link or keyboard accessible after the animation. Never redirect automatically after a spin. Citrus Hysteria appears on Angry and Sauces; Sweet Lunacy on Cute, Weird, and Drinks; Crimson Potion on Scary and Drinks. Nostalgic and Apparel share all 11 imported T-shirts from EshDHD. Build them from data/apparel.json using node scripts/build-apparel.cjs. The other feeling pages have matching styling and a Back to the wheel link, ready for assigned products.
 
 ## Next steps (owner's roadmap)
 - [ ] Product pages: Sauces, Drinks, Apparel

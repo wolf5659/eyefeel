@@ -30,6 +30,7 @@ function wheel() {
     getAttribute(name) {return this.attributes[name] ?? null},
     setAttribute(name, value) {this.attributes[name] = value},
     removeAttribute(name) {delete this.attributes[name]},
+    closest(selector) {return selector === '.seg' && this.attributes['data-href'] || selector === '.spin-trigger' && this.isTrigger ? this : null},
     focus() {focused = this}
   });
   const segments = routes.map(route => {
@@ -38,7 +39,9 @@ function wheel() {
     g.querySelector = () => text;
     return g;
   });
-  const spin = element({}), trigger = element({}), status = element({});
+  const spin = element({}), trigger = element({}), status = element({}), disc = element({}), art = element({});
+  spin.parentElement = disc;
+  trigger.isTrigger = true;
   trigger.disabled = false;
   spin.querySelectorAll = () => segments;
   const timers = [], destinations = [], randomValues = [];
@@ -51,21 +54,28 @@ function wheel() {
     setTimeout: (fn, ms) => timers.push({fn,ms}), requestAnimationFrame() {},
     performance: {now: () => 0}
   });
-  const press = (i, key) => segments[i].handlers[key ? 'keydown' : 'click']({key,detail:1,preventDefault() {}});
-  return {spin,trigger,status,segments,timers,destinations,randomValues,press,focused:() => focused};
+  const event = target => ({target,detail:1,preventDefault() {}});
+  const press = (i,key) => {const e={...event(segments[i]),key};segments[i].handlers[key ? 'keydown' : 'click'](e);if(!key)disc.handlers.click(e)};
+  const centre = () => {const e=event(trigger);trigger.handlers.click(e);disc.handlers.click(e)};
+  const surface = () => disc.handlers.click(event(art));
+  return {spin,trigger,status,segments,timers,destinations,randomValues,press,centre,surface,focused:() => focused};
 }
-const initial = wheel();
 for (let i = 0; i < routes.length; i++) {
-  for (const key of [undefined,'Enter',' ']) initial.press(i,key);
+  for (const key of [undefined,'Enter',' ']) {
+    const w=wheel();w.press(i,key);
+    assert.equal(w.destinations.length,0,'Unselected sections never open pages');
+    assert.equal(w.timers.length,key ? 0 : 1,'Pointer clicks spin; inactive sections are not keyboard buttons');
+  }
 }
-assert.equal(initial.destinations.length,0,'Every section starts inactive');
-assert.equal(initial.timers.length,0,'Only the centre can start a spin');
+const surface=wheel();surface.surface();
+assert.equal(surface.timers.length,1,'Clicking the wheel artwork starts a spin');
+assert.equal(surface.destinations.length,0);
 for (const jitter of [0,.5,.999]) {
   const w = wheel();
   for (let k = 9; k >= 0; k--) {
     const previous = w.destinations.length;
     w.randomValues.push((k+.5)/10,jitter,.1);
-    w.trigger.handlers.click();
+    k % 2 ? w.centre() : w.surface();
     assert.equal(w.trigger.disabled,true);
     assert.ok(w.segments.every(g => !g.getAttribute('href') && g.getAttribute('tabindex') === '-1' && !g.classList.contains('won')),'Clear the previous choice on every new spin');
     for (let i = 0; i < routes.length; i++) w.press(i,'Enter');
@@ -84,12 +94,19 @@ for (const jitter of [0,.5,.999]) {
     assert.equal(w.focused(),w.segments[k]);
     assert.ok(w.status.textContent.includes(routes[k].name));
     for (let i = 0; i < routes.length; i++) {
-      if (i !== k) for (const key of [undefined,'Enter',' ']) w.press(i,key);
+      if (i !== k) for (const key of ['Enter',' ']) w.press(i,key);
     }
-    assert.equal(w.destinations.length,previous,'Other sections remain inactive after landing');
+    assert.equal(w.destinations.length,previous,'Other sections remain inactive as keyboard links');
     for (const key of [undefined,'Enter',' ']) w.press(k,key);
     assert.equal(w.destinations.length,previous+3);
     assert.ok(w.destinations.slice(previous).every(href => href === routes[k].href));
+    assert.equal(w.timers.length,0,'Opening the selected feeling must not also start a spin');
   }
 }
-console.log('Passed: no initial navigation, centre-only spin, one selected link, no auto redirect, keyboard activation, new-spin reset and all 10 outcomes.');
+const restart=wheel();restart.randomValues.push(.05,.5,.1);restart.centre();restart.timers.shift().fn();
+assert.equal(restart.segments[0].getAttribute('href'),'angry.html');
+restart.press(1);
+assert.equal(restart.destinations.length,0,'Clicking another section spins instead of opening its page');
+assert.equal(restart.timers.length,1);
+assert.ok(restart.segments.every(g=>!g.getAttribute('href')),'A new wheel click clears the old choice');
+console.log('Passed: artwork and section clicks spin, centre click fires once, selected link opens without spinning, busy guard, reset and all 10 outcomes.');
