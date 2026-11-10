@@ -19,7 +19,7 @@ Static site (plain HTML/CSS/JS, no build step). Owner: Al. Domain: www.eyefeel.m
 - CNAME — www.eyefeel.me (GitHub Pages).
 
 ## Main page spec
-- Full-screen background assets/bg.jpg (cover, bottom) with dark vignette. Logo top-left. Nav top-right: Sauces, Drinks, Apparel, Return Policy, Contact Us, Cart. Every nav item shows a "Coming soon" tooltip on hover/focus (links go nowhere yet).
+- Full-screen background assets/bg.jpg (cover, bottom) with dark vignette. Logo top-left. Nav top-right: Feelings, Sauces, Drinks, Apparel, Return Policy, Contact Us, Cart. Feelings is a dropdown with direct links to all ten feeling pages, also expandable inside the mobile Menu. Ready page links have no Coming soon tooltip.
 - Wheel of feelings centered on the page (10 segments, 36 degrees each, clockwise from top): Angry, Cute, Funny, Happy, Loved, Nostalgic, Sad, Scary, Special, Weird.
 - Layers inside `.disc` (square, sized by container query units): `.spin` (wheel.webp + SVG hover wedges, rotates) > `img.middlewheel` (compass, stays still, on the hub) > `img.upperbanner` (ribbon on top, stays still, ornament sits on the wheel's top rim).
 - Geometry (percent of `.disc`): hub center 49.95% / 49.49%; wedge outer radius 43.5; hub radius 14.2; middlewheel width ~38.5%.
