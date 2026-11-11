@@ -156,19 +156,30 @@ nav .feelings-links a:focus-visible{box-shadow:inset 0 0 0 1px var(--gold)}
 .wheel-guide {
   position: absolute;
   z-index: 2;
-  top: 54%;
+  top: 60%;
   right: clamp(20px, 4vw, 72px);
   transform: translateY(-50%);
   width: clamp(150px, 17vw, 232px);
   margin: 0;
-  padding: 12px 14px;
-  border: 1px solid #9a7538;
-  border-radius: 8px;
-  background: #160d09;
   color: #fff4dd;
-  font-size: clamp(19px, 1.8vw, 23px);
+  font-size: clamp(19px, 1.65vw, 22px);
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.45;
+  text-shadow: 0 1px 4px #000;
+}
+.wheel-guide::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -32px -28px;
+  background: linear-gradient(90deg, transparent, #100905 10%, #100905 90%, transparent);
+  mask-image: linear-gradient(transparent, #000 17%, #000 83%, transparent);
+  opacity: .9;
+  pointer-events: none;
+}
+.wheel-guide strong {
+  color: #f4d58f;
+  font-weight: 600;
 }
 @media(max-aspect-ratio:6/5),(max-width:700px){
   .wheel:has(~.wheel-guide){bottom:155px}
