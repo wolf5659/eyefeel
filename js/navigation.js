@@ -24,7 +24,8 @@
   });
   feelings.appendChild(feelingsToggle);
   feelings.appendChild(feelingsLinks);
-  nav.insertBefore(feelings, nav.firstChild);
+  var aboutLink = nav.querySelector('a[href$="#about"]');
+  nav.insertBefore(feelings, aboutLink ? aboutLink.nextSibling : nav.firstChild);
 
   var mobile = window.matchMedia('(max-width: 640px)');
   var toggle = document.createElement('button');
