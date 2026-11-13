@@ -31,7 +31,11 @@ h1{margin:0;font-family:'Cinzel Decorative',Georgia,serif;font-weight:900;font-s
 .mctl{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(env(safe-area-inset-bottom,0px) + 16px);z-index:20;display:flex;align-items:center;gap:10px}.vol{display:flex;align-items:center;height:36px;padding:0 14px;background:rgba(8,3,2,.82);border:1px solid #d9a94a;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.6)}.vol input{-webkit-appearance:none;appearance:none;width:clamp(70px,9vw,110px);height:4px;border-radius:2px;background:linear-gradient(to right,#d9a94a var(--p,35%),rgba(217,169,74,.25) var(--p,35%));outline:none;cursor:pointer;margin:0}.vol input::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:#f3e3c3;border:1px solid #d9a94a}.vol input::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#f3e3c3;border:1px solid #d9a94a}.vol input:focus-visible{box-shadow:0 0 0 3px rgba(255,154,60,.5)}.mbtn{position:relative;width:44px;height:44px;padding:0;display:grid;place-items:center;color:#d9a94a;background:rgba(8,3,2,.82);border:1px solid #d9a94a;border-radius:50%;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.6);transition:box-shadow .25s,transform .25s}.mbtn:hover,.mbtn:focus-visible{box-shadow:0 0 18px rgba(255,154,60,.6);transform:translateY(-2px);outline:none}.mbtn svg{width:22px;height:22px}.mbtn .off{display:block}.mbtn .on{display:none}.mbtn.playing .off{display:none}.mbtn.playing .on{display:block}
 
 /* Ready pages have no coming-soon tooltip. */
-nav a[href="sauces.html"]::after,nav a[href="drinks.html"]::after,nav a[href="apparel.html"]::after,nav a[href="returns.html"]::after,nav a[href="contact.html"]::after{content:none}
+nav a[href="sauces.html"]::after,nav a[href="drinks.html"]::after,nav a[href="apparel.html"]::after,nav a[href="returns.html"]::after,nav a[href="contact.html"]::after,nav a[href$="#about"]::after{content:none}
+
+@media(min-width:641px) and (max-width:800px){
+  header nav{gap:10px}
+}
 
 
 /* Mobile: keep audio controls within the visible viewport, even with browser bars. */
@@ -234,6 +238,25 @@ nav .feelings-links a:focus-visible{box-shadow:inset 0 0 0 1px var(--gold)}
 }
 
 .home-circus {
+  display: grid;
+  place-items: center;
   min-height: 100vh;
   min-height: 100svh;
+  padding: 60px 16px 100px;
+}
+.home-about {
+  position: relative;
+  width: min(100%, 520px);
+  padding: clamp(22px, 5vw, 36px);
+  background: rgba(14, 6, 4, .88);
+  text-align: center;
+}
+.home-about h2 {
+  margin: 0 0 16px;
+  font: 700 clamp(26px, 4vw, 42px) / 1.2 'Cinzel Decorative', Georgia, serif;
+}
+.home-about p {
+  margin: 0;
+  font-size: clamp(19px, 2.2vw, 24px);
+  line-height: 1.4;
 }
