@@ -1,4 +1,4 @@
-// Eyefeel contact form backend. Recipient email is stored privately in Vercel.
+// Eyefeel contact form backend. Configure delivery through Vercel environment variables.
 const ALLOWED_TOPICS = new Set([
   "General Enquiry",
   "Order Support",
@@ -9,6 +9,12 @@ const ALLOWED_TOPICS = new Set([
 ]);
 const recent = new Map();
 const EMAIL_PATTERN = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/;
+const allowedOrigins = new Set([
+  "https://www.eyefeel.me",
+  "https://eyefeel.me",
+  "https://eyefeel.vercel.app",
+  ...[process.env.VERCEL_URL, process.env.VERCEL_BRANCH_URL].filter(Boolean).map(host => `https://${host}`),
+]);
 
 function string(value, limit) {
   return typeof value === "string" ? value.trim().slice(0, limit + 1) : "";
@@ -26,17 +32,8 @@ module.exports = async function handler(req, res) {
     return reply(res, 405, "Only form submissions are accepted.");
   }
 
-  const siteOrigin = string(req.headers.origin || "", 250);
-  if (siteOrigin) {
-    try {
-      const host = new URL(siteOrigin).hostname.toLowerCase();
-      if (host !== "www.eyefeel.me" && host !== "eyefeel.me" &&
-        !host.endsWith("-magadina.vercel.app") && host !== "eyefeel.vercel.app") {
-        return reply(res, 403, "Please use the official Eyefeel website.");
-      }
-    } catch {
-      return reply(res, 403, "Invalid request origin.");
-    }
+  if (!allowedOrigins.has(req.headers.origin)) {
+    return reply(res, 403, "Please use the official Eyefeel website.");
   }
 
   let input = req.body;
@@ -88,12 +85,38 @@ module.exports = async function handler(req, res) {
     return reply(res, 429, "Please allow a short moment before sending another message.");
   }
 
-  // FormSubmit blocks server-to-server submissions with Cloudflare.
-  // A 307 sends the validated POST from the visitor's browser, where
-  // FormSubmit's public AJAX integration is supported. The destination
-  // address stays out of the rendered form and JavaScript source.
   if (ip) recent.set(ip, now);
-  res.setHeader("Location", "https://formsubmit.co/ajax/" + encodeURIComponent(dest));
+
+  const resendKey = process.env.RESEND_API_KEY;
+  const from = process.env.CONTACT_FROM_EMAIL;
+  if (resendKey && from) {
+    const text = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      phone && `Phone: ${phone}`,
+      order && `Order: ${order}`,
+      `Topic: ${topic}`,
+    ].filter(Boolean).join("\n") + `\n\n${message}`;
+    try {
+      const result = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${resendKey}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ from, to: [dest], reply_to: email, subject: `Eyefeel Contact | ${topic}`, text }),
+        signal: AbortSignal.timeout(8000),
+        redirect: "error",
+      });
+      if (result.ok) return reply(res, 200, "Message submitted.");
+      console.error("Eyefeel contact: email provider rejected the message", result.status);
+    } catch {
+      console.error("Eyefeel contact: email provider request failed.");
+    }
+    return reply(res, 502, "Message delivery failed. Please try again or use WhatsApp.");
+  }
+
+  // Keep the existing browser relay while the server-side sender is being set up.
+  // FormSubmit can replace the visible address with its activation token.
+  const relayTarget = process.env.CONTACT_FORMSUBMIT_TOKEN || dest;
+  res.setHeader("Location", "https://formsubmit.co/ajax/" + encodeURIComponent(relayTarget));
   res.setHeader("Cache-Control", "no-store");
   res.status(307).end();
 };

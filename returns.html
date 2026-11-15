@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:wght@500;600;700&family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=20261113-about-button-1">
-  <link rel="stylesheet" href="css/returns.css?v=20261104-1">
+  <link rel="stylesheet" href="css/returns.css?v=20261115-security-1">
 </head>
 <body class="policy-page">
 <div class="stage">
@@ -31,8 +31,8 @@
       </div>
       <div data-copy="ar" hidden dir="rtl" lang="ar">
         <p class="policy-kicker">قواعد عالم إيفيل</p>
-        <h1 style="font-family:Tajawal,Tahoma,sans-serif;letter-spacing:normal">سياسة الاستبدال والاسترجاع</h1>
-        <p class="policy-intro" style="font-family:Tajawal,Tahoma,sans-serif">تجربة مميزة، وحقوق واضحة. تعرّف على شروط الإرجاع والاستبدال واسترداد المبالغ لدى إيفيل داخل المملكة العربية السعودية.</p>
+        <h1>سياسة الاستبدال والاسترجاع</h1>
+        <p class="policy-intro">تجربة مميزة، وحقوق واضحة. تعرّف على شروط الإرجاع والاستبدال واسترداد المبالغ لدى إيفيل داخل المملكة العربية السعودية.</p>
         <p class="policy-meta">تسري اعتبارًا من ٤ نوفمبر ٢٠٢٦ · المملكة العربية السعودية</p>
       </div>
       <div class="policy-switch" role="group" aria-label="Policy language">
@@ -184,25 +184,6 @@
   </button>
 </div>
 <script src="js/music.js?v=20261104-2" defer></script>
-<script>
-(function(){
-  var english=document.getElementById('policy-en');
-  var arabic=document.getElementById('policy-ar');
-  var enButton=document.getElementById('lang-en');
-  var arButton=document.getElementById('lang-ar');
-  function selectLanguage(lang){
-    var isArabic=lang==='ar';
-    english.hidden=isArabic;
-    arabic.hidden=!isArabic;
-    document.querySelector('[data-copy="en"]').hidden=isArabic;
-    document.querySelector('[data-copy="ar"]').hidden=!isArabic;
-    enButton.setAttribute('aria-pressed',String(!isArabic));
-    arButton.setAttribute('aria-pressed',String(isArabic));
-    document.documentElement.lang=isArabic?'ar':'en';
-  }
-  enButton.addEventListener('click',function(){selectLanguage('en')});
-  arButton.addEventListener('click',function(){selectLanguage('ar')});
-})();
-</script>
+<script src="js/returns.js?v=20261115-1" defer></script>
 </body>
 </html>
