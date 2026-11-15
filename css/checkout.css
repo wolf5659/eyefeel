@@ -1,0 +1,80 @@
+:root {
+  color-scheme: dark;
+  background: #0e0604;
+  color: #f3e3c3;
+  font: 600 20px / 1.4 'Cormorant Garamond', Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 20px clamp(16px, 5vw, 64px) 40px;
+  background: linear-gradient(#0e0604b3, #0e0604 90%), url('../assets/bg.jpg') center / cover fixed;
+}
+
+.checkout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.checkout-header img { display: block; object-fit: contain; }
+.checkout-header a { color: #f3e3c3; text-underline-offset: 4px; }
+
+main {
+  width: min(100%, 600px);
+  margin: 32px auto 0;
+  padding: clamp(18px, 5vw, 40px);
+  border: 1px solid #d9a94a99;
+  border-radius: 12px;
+  background: #160a07;
+}
+
+h1 {
+  margin: 0;
+  font: 700 clamp(24px, 6vw, 36px) / 1.2 'Cinzel Decorative', Georgia, serif;
+}
+
+.checkout-intro { margin: 12px 0 24px; color: #e2c899; }
+#checkout-status { padding: 12px; border-inline-start: 2px solid #d9a94a; background: #d9a94a14; }
+
+fieldset { margin: 0; padding: 0; border: 0; }
+legend { width: 100%; margin-bottom: 4px; }
+
+.checkout-product {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 66px;
+  align-items: center;
+  gap: 14px;
+  padding-block: 10px;
+  border-bottom: 1px solid #d9a94a33;
+}
+
+.checkout-product span { display: block; color: #e2c899; font-size: 17px; }
+
+input, select, button {
+  min-height: 44px;
+  border: 1px solid #d9a94a99;
+  border-radius: 5px;
+  padding: 6px 9px;
+  font: inherit;
+}
+
+.delivery label { display: block; margin-block: 20px 5px; }
+select { width: 100%; }
+.checkout-total { display: flex; justify-content: space-between; gap: 12px; font-size: 23px; }
+output { color: #f4d892; }
+
+button {
+  width: 100%;
+  background: #ebc875;
+  color: #1e1006;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:disabled { opacity: .55; cursor: default; }
+:focus-visible { outline: 2px solid #ebc875; outline-offset: 3px; }

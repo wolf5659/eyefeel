@@ -1,0 +1,12 @@
+{
+  "products": {
+    "citrus-hysteria": { "name": "Citrus Hysteria", "amount": 3500 },
+    "crimson-potion": { "name": "Crimson Potion", "amount": 2500 },
+    "sweet-lunacy": { "name": "Sweet Lunacy", "amount": 3000 }
+  },
+  "delivery": {
+    "pickup": { "name": "Pickup", "amount": 0 },
+    "jeddah": { "name": "Delivery in Jeddah", "amount": 2500 },
+    "saudi": { "name": "Delivery elsewhere in Saudi Arabia", "amount": 4500 }
+  }
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Checkout preview · Eyefeel</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="css/checkout.css">
+  <script src="js/checkout.js" defer></script>
+</head>
+<body>
+  <header class="checkout-header">
+    <a href="index.html" aria-label="Eyefeel home"><img src="assets/logo.png" alt="Eyefeel" width="76" height="76"></a>
+    <a href="index.html">Back to Eyefeel</a>
+  </header>
+  <main>
+    <h1>Checkout preview</h1>
+    <p class="checkout-intro">Test mada payments with Moyasar. Use a test card.</p>
+    <p id="checkout-status" role="status" hidden></p>
+    <form id="checkout" hidden>
+      <fieldset id="checkout-products">
+        <legend>Products</legend>
+      </fieldset>
+      <div class="delivery">
+        <label for="checkout-delivery">Delivery</label>
+        <select id="checkout-delivery" name="delivery"></select>
+      </div>
+      <p class="checkout-total">Total <output id="checkout-total" for="checkout-delivery">0 SAR</output></p>
+      <button type="submit" disabled>Continue to Moyasar</button>
+    </form>
+  </main>
+</body>
+</html>
