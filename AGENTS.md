@@ -13,7 +13,7 @@ Static site (plain HTML/CSS/JS, no build step). Owner: Al. Domain: www.eyefeel.m
 
 ## Files
 - index.html — main page. css/style.css, js/wheel.js, js/music.js.
-- about.html — the owner's complete About Us copy, styled by css/about.css. About Us is the first navigation link on all normal pages.
+- about.html — the current About Us copy in three short paragraphs, styled by css/about.css. About Us is the first navigation link on all normal pages.
 - coming-soon.html — separate page: same background, only the "Feeling Soon" sign centered.
 - assets/ — optimized images + music. source-originals/ — full-size originals (edit/re-export from these).
 - source-originals/REFERENCE-mockup-wheel-and-middlewheel-only.png — reference for the WHEEL and MIDDLEWHEEL only, not the whole page.
